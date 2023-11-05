@@ -1,3 +1,5 @@
+using SignalrProject.Hubs;
+
 namespace SignalrProject
 {
     public class Program
@@ -35,6 +37,7 @@ namespace SignalrProject
             app.UseRouting();
             app.UseCors();
             app.UseAuthorization();
+            app.MapHub<ChatHub>("/chatHub");
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
